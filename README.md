@@ -28,6 +28,7 @@ Members: Kastan Day, Aria Coraor, Seonghwan Kim, Jiahui Yang, Ruijie Zhu
 - Cosine kernel: 15-dimensional feature used to capture the periodicity of sequence
 
 ***3. VAE features***
+
 4-dimensional feature generated using the Variational Autoencoder model
 
 ***4. Interaction parameter***
