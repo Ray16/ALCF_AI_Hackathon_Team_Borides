@@ -36,10 +36,10 @@ Members: Kastan Day, Aria Coraor, Seonghwan Kim, Jiahui Yang, Ruijie Zhu
 ## ***Multi-channel PolyConvNet***
 
 The model consists of a series of convolution layer and fully connected layers that extract patterns from the polymer sequence.
-![](./img/nn.png)
+![](./img/nn_v2.png)
 
 ## ***Model Performance***
-![](./img/performance.png)
+![](./img/performance_v2.png)
 
 ## ***Computational Efficiency***
 |           Feature Generation          |  Time (min) |
