@@ -20,6 +20,7 @@ Members: Kastan Day, Aria Coraor, Seonghwan Kim, Jiahui Yang, Ruijie Zhu
 
 
 ***Features***
+
 1. Sliding window features: 29-dimensional feature used to capture the activation of polymer sequence
 ![](./img/activation.png)
 2. Kernels
@@ -29,7 +30,18 @@ Members: Kastan Day, Aria Coraor, Seonghwan Kim, Jiahui Yang, Ruijie Zhu
 4. Interaction parameter
 
 ***Multi-channel PolyConvNet***
+
 The model consists of a series of convolution layer and fully connected layers that extract patterns from the polymer sequence
 ![](./img/nn.png)
 
+***Model Performance***
+![](./img/performance.png)
 
+***Computational Efficiency***
+|           Feature Generation          |  Time (min) |
+| ------------------------------------- | ----------- |
+| Sliding Window Features (2 channels)  |       1     |
+| Kernel Features                       |       ?     |
+| VAE Features                          |       ?     |
+
+* All runtimes are reported using Theta GPU
