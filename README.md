@@ -19,13 +19,17 @@ Members: Kastan Day, Aria Coraor, Seonghwan Kim, Jiahui Yang, Ruijie Zhu
 ## ***ML Features***
 
 ***1. Sliding window features***
+
 29-dimensional feature used to capture the activation of polymer sequence
 ![](./img/activation.png)
+
 ***2. Kernels***
-- Exponential kernel: 30-dimensional feature used to capture the interaction decay at two ends
-- Cosine kernel: 15-dimensional feature used to capture the periodicity of the sequence
+- Exponential kernel: 30-dimensional feature used to capture the interaction at two ends
+- Cosine kernel: 15-dimensional feature used to capture the periodicity of sequence
+
 ***3. VAE features***
 4-dimensional feature generated using the Variational Autoencoder model
+
 ***4. Interaction parameter***
 
 ## ***Multi-channel PolyConvNet***
