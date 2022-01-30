@@ -5,6 +5,7 @@ Members: Kastan Day, Aria Coraor, Seonghwan Kim, Jiahui Yang, Ruijie Zhu
 
 ## Description
 ### This repo contains code to tackle challenge I of AI Hackathon. It is structured as follows:
+```
 .
 ├── data                                             # input data file for feature generation
 ├── Sliding_window_feature_generation.ipynb          # code used to generate multi-channel sliding window features
@@ -13,7 +14,7 @@ Members: Kastan Day, Aria Coraor, Seonghwan Kim, Jiahui Yang, Ruijie Zhu
 ├── models                                           # folder containing the trained models
 ├── LICENSE
 └── README.md
-
+```
 
 ### Here we propose multi-channel polyconvnet, a 1D convolutional neural net for predicting the lamellar period of copolymers based on the sequence of beads. 
 
