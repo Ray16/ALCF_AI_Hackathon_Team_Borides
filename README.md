@@ -1,12 +1,10 @@
 # Multi-channel PolyConvNet
-a 1D convolutional neural net for predicting the lamellar period of copolymers based on the sequence of beads. 
+1D convolutional neural net for predicting the lamellar period of copolymers based on sequence of beads. 
 
-## AI Hackathon - Challenge I
-## Team Borides
+### Team Borides
 Members: Kastan Day, Aria Coraor, Seonghwan Kim, Jiahui Yang, Ruijie Zhu
 
-## Description
-### This repo contains code to tackle challenge I of AI Hackathon. It is structured as follows:
+## ***Directories***
 ```
 .
 ├── data                                             # input data file for feature generation
@@ -18,19 +16,21 @@ Members: Kastan Day, Aria Coraor, Seonghwan Kim, Jiahui Yang, Ruijie Zhu
 └── README.md
 ```
 
-## ***Features***
+## ***ML Features***
 
-1. Sliding window features: 29-dimensional feature used to capture the activation of polymer sequence
+***1. Sliding window features***
+29-dimensional feature used to capture the activation of polymer sequence
 ![](./img/activation.png)
-2. Kernels
+***2. Kernels***
 - Exponential kernel: 30-dimensional feature used to capture the interaction decay at two ends
 - Cosine kernel: 15-dimensional feature used to capture the periodicity of the sequence
-3. VAE features: 4-dimensional feature generated using the Variational Autoencoder model
-4. Interaction parameter
+***3. VAE features***
+4-dimensional feature generated using the Variational Autoencoder model
+***4. Interaction parameter***
 
 ## ***Multi-channel PolyConvNet***
 
-The model consists of a series of convolution layer and fully connected layers that extract patterns from the polymer sequence
+The model consists of a series of convolution layer and fully connected layers that extract patterns from the polymer sequence.
 ![](./img/nn.png)
 
 ## ***Model Performance***
@@ -42,5 +42,4 @@ The model consists of a series of convolution layer and fully connected layers t
 | Sliding Window Features (2 channels)  |       1     |
 | Kernel Features                       |       ?     |
 | VAE Features                          |       ?     |
-
-* All runtimes are reported using Theta GPU
+* All runtimes reported using Theta GPU
