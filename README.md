@@ -16,13 +16,20 @@ Members: Kastan Day, Aria Coraor, Seonghwan Kim, Jiahui Yang, Ruijie Zhu
 └── README.md
 ```
 
-### Here we propose multi-channel polyconvnet, a 1D convolutional neural net for predicting the lamellar period of copolymers based on the sequence of beads. 
+### Here we propose the multi-channel polyconvnet, a 1D convolutional neural net for predicting the lamellar period of copolymers based on the sequence of beads. 
 
 
-Features:
-1. Sliding window features: 29-dimensional feature used to capture the activation of sequence
+***Features***
+1. Sliding window features: 29-dimensional feature used to capture the activation of polymer sequence
+![](./img/activation.png)
 2. Kernels
 - Exponential kernel: 30-dimensional feature used to capture the interaction decay at two ends
-- Cosine kernel: used to capture the periodicity of the sequence
+- Cosine kernel: 15-dimensional feature used to capture the periodicity of the sequence
 3. VAE features: 4-dimensional feature generated using the Variational Autoencoder model
 4. Interaction parameter
+
+***Multi-channel PolyConvNet***
+The model consists of a series of convolution layer and fully connected layers that extract patterns from the polymer sequence
+![](./img/nn.png)
+
+
