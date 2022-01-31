@@ -41,11 +41,11 @@ def train_model(vae_encoder, vae_decoder, property_network, x_train, x_test, y_t
 
     for idx in range(y_train.shape[1]):
         y_train_scaled[:, idx] = torch.tensor(
-            scaler_list[idx].transform(y_train[:, idx].view(-1, 1)).flatten(),
+            scaler_list[idx].transform(y_train[:, idx].view(-1, 1).cpu()).flatten(),
             dtype=dtype, device=device
         )
         y_test_scaled[:, idx] = torch.tensor(
-            scaler_list[idx].transform(y_test[:, idx].view(-1, 1)).flatten(),
+            scaler_list[idx].transform(y_test[:, idx].view(-1, 1).cpu()).flatten(),
             dtype=dtype, device=device
         )
 
@@ -92,10 +92,10 @@ def train_model(vae_encoder, vae_decoder, property_network, x_train, x_test, y_t
                     out_one_hot[:, seq_index, :] = out_one_hot_line[0]
 
                 # compute ELBO
-                # vae_loss = compute_elbo(batch_data, out_one_hot, mus, log_vars, KLD_alpha)
+                vae_loss = compute_elbo(batch_data, out_one_hot, mus, log_vars, KLD_alpha)
 
                 # compute reconloss + WAE
-                vae_loss = compute_elbo_with_mmd(batch_data, out_one_hot, latent_points[0])
+                # vae_loss = compute_elbo_with_mmd(batch_data, out_one_hot, latent_points[0])
 
                 # compute property loss
                 y_batch_train_feature = y_batch_train[:, :-1]
@@ -156,10 +156,10 @@ def train_model(vae_encoder, vae_decoder, property_network, x_train, x_test, y_t
             element_quality, sequence_quality = compute_recon_quality(x_test, out_one_hot)
 
             # compute ELBO
-            # vae_loss = compute_elbo(x_test, out_one_hot, mus, log_vars, KLD_alpha)
+            vae_loss = compute_elbo(x_test, out_one_hot, mus, log_vars, KLD_alpha)
 
             # compute wasserstein loss
-            vae_loss = compute_elbo_with_mmd(x_test, out_one_hot, latent_points[0])
+            # vae_loss = compute_elbo_with_mmd(x_test, out_one_hot, latent_points[0])
 
             # compute property loss
             y_test_feature = y_test_scaled[:, :-1]
@@ -211,15 +211,15 @@ def train_model(vae_encoder, vae_decoder, property_network, x_train, x_test, y_t
         test_latent_points, mus, log_vars = vae_encoder(test_inp_flat_one_hot)  # [b, latent_dimension]
         test_latent_points_with_feature = torch.cat([test_latent_points, y_test_scaled[:, :-1]], dim=-1)
 
-        pred_train_final = scaler_list[-1].inverse_transform(property_network(train_latent_points_with_feature))
-        pred_test_final = scaler_list[-1].inverse_transform(property_network(test_latent_points_with_feature))
+        pred_train_final = scaler_list[-1].inverse_transform(property_network(train_latent_points_with_feature).cpu())
+        pred_test_final = scaler_list[-1].inverse_transform(property_network(test_latent_points_with_feature).cpu())
 
         # get r2 score
-        train_r2_score = r2_score(y_true=y_train[:, -1].view(-1, 1), y_pred=pred_train_final)
-        test_r2_score = r2_score(y_true=y_test[:, -1].view(-1, 1), y_pred=pred_test_final)
+        train_r2_score = r2_score(y_true=y_train[:, -1].view(-1, 1).cpu(), y_pred=pred_train_final)
+        test_r2_score = r2_score(y_true=y_test[:, -1].view(-1, 1).cpu(), y_pred=pred_test_final)
 
-        plt.plot(pred_train_final, y_train[:, -1].view(-1, 1), 'bo', label='Train R2 score: %.3f' % train_r2_score)
-        plt.plot(pred_test_final, y_test[:, -1].view(-1, 1), 'ro', label='Test R2 score: %.3f' % test_r2_score)
+        plt.plot(pred_train_final, y_train[:, -1].view(-1, 1).cpu(), 'bo', label='Train R2 score: %.3f' % train_r2_score)
+        plt.plot(pred_test_final, y_test[:, -1].view(-1, 1).cpu(), 'ro', label='Test R2 score: %.3f' % test_r2_score)
 
         plt.legend()
         plt.xlabel('prediction')
@@ -299,7 +299,7 @@ def compute_recon_quality(x, x_hat):
     differences = 1. - torch.abs(x_hat_indices - x_indices)
     differences = torch.clamp(differences, min=0., max=1.).double()
     element_quality = 100. * torch.mean(differences)
-    element_quality = element_quality.detach().numpy()
+    element_quality = element_quality.detach().cpu().numpy()
 
     # calculate sequence level quality
     x_sequence_indices = x_indices.reshape(x.shape[0], -1)
@@ -308,7 +308,7 @@ def compute_recon_quality(x, x_hat):
     sequence_difference = 1. - torch.abs(sequence_difference.sum(dim=-1))
     sequence_difference = torch.clamp(sequence_difference, min=0., max=1.)
     sequence_quality = 100. * torch.mean(sequence_difference)
-    sequence_quality = sequence_quality.detach().numpy()
+    sequence_quality = sequence_quality.detach().cpu().numpy()
 
     return element_quality, sequence_quality
 
