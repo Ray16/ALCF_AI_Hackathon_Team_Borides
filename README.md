@@ -40,6 +40,7 @@ The model consists of a series of convolution layer and fully connected layers t
 ![](./img/nn_v2.png)
 
 ## ***Model Performance***
+![](./img/performance_v2.png)
 
 ## ***Computational Efficiency***
 |           Feature Generation          |  Time (min) |
