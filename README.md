@@ -4,9 +4,6 @@
 ### Team Borides
 Members: Kastan Day, Aria Coraor, Seonghwan Kim, Jiahui Yang, Ruijie Zhu
 
-### Slides
-https://docs.google.com/presentation/d/1Mo8zei8vpj9Wm4sYGLbQqZcCSg4fV2Ck/edit#slide=id.p7
-
 ## ***Directories***
 ```
 .
@@ -51,12 +48,11 @@ The model consists of a series of convolution layer and fully connected layers t
 | Sliding Window Features (2 channels)  |      0.5    |
 | Kernel Features                       |     0.08    |
 | VAE Features                          |       30    |
-<<<<<<< HEAD
-=======
+
 
 |      Model Training/Validation        |  Time (min) |
 | ------------------------------------- | ----------- |
 | Training                              |        1    |
 | Validation                            |     0.02    |
->>>>>>> b9626b52411a31cadc875f1810138900a1e2dfe0
+
 * All runtimes reported using Theta GPU
