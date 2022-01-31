@@ -4,6 +4,9 @@
 ### Team Borides
 Members: Kastan Day, Aria Coraor, Seonghwan Kim, Jiahui Yang, Ruijie Zhu
 
+### Slides
+https://docs.google.com/presentation/d/1Mo8zei8vpj9Wm4sYGLbQqZcCSg4fV2Ck/edit#slide=id.p7
+
 ## ***Directories***
 ```
 .
