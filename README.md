@@ -8,10 +8,10 @@ Members: Kastan Day, Aria Coraor, Seonghwan Kim, Jiahui Yang, Ruijie Zhu
 ```
 .
 ├── data                                             # input data file for feature generation
-├── Sliding_window_feature_generation.ipynb          # code used to generate multi-channel sliding window features
-├── features                                         # folder containing all the features used to train the neural net
+├── features                                         # folder containing scripts used to generate features and all features used to train the neural net
 ├── Multi-channel PolyConvNet.ipynb                  # code used to train / test the Multi-channel PolyConvNet
-├── models                                           # folder containing the trained models
+├── Multi-channel PolyConvNet VAE.ipynb                  # code used to train / test the Multi-channel PolyConvNet with VAE features
+├── models                                           # folder containing all trained models
 ├── LICENSE
 └── README.md
 ```
@@ -45,7 +45,7 @@ The model consists of a series of convolution layer and fully connected layers t
 ## ***Computational Efficiency***
 |           Feature Generation          |  Time (min) |
 | ------------------------------------- | ----------- |
-| Sliding Window Features (2 channels)  |       1     |
-| Kernel Features                       |       ?     |
-| VAE Features                          |       ?     |
+| Sliding Window Features (2 channels)  |      0.5    |
+| Kernel Features                       |     0.08    |
+| VAE Features                          |       30    |
 * All runtimes reported using Theta GPU
