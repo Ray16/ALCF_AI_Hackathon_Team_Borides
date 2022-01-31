@@ -48,4 +48,12 @@ The model consists of a series of convolution layer and fully connected layers t
 | Sliding Window Features (2 channels)  |      0.5    |
 | Kernel Features                       |     0.08    |
 | VAE Features                          |       30    |
+<<<<<<< HEAD
+=======
+
+|      Model Training/Validation        |  Time (min) |
+| ------------------------------------- | ----------- |
+| Training                              |        1    |
+| Validation                            |     0.02    |
+>>>>>>> b9626b52411a31cadc875f1810138900a1e2dfe0
 * All runtimes reported using Theta GPU
