@@ -45,7 +45,7 @@ The model consists of a series of convolution layer and fully connected layers t
 ## ***Computational Efficiency***
 |           Feature Generation          |  Time (min) |
 | ------------------------------------- | ----------- |
-| Sliding Window Features (2 channels)  |      0.5    |
+| Sliding Window Features (4 channels)  |      0.5    |
 | Kernel Features                       |     0.08    |
 | VAE Features                          |       30    |
 
