@@ -2,7 +2,7 @@
 1D convolutional neural net for predicting the lamellar period of copolymers based on sequence of beads. 
 
 ### Team Borides
-Members: Kastan Day, Aria Coraor, Seonghwan Kim, Jiahui Yang, Ruijie Zhu
+Members: Ruijie Zhu, Kastan Day, Aria Coraor, Seonghwan Kim, Jiahui Yang
 
 ## ***Directories***
 ```
